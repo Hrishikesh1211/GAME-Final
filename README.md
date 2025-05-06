@@ -45,7 +45,7 @@ at least 5 clues to uncover the truth.
 
 To enable sound, download the sound files and place them in a `sounds/` folder.
 
-Download link: [https://github.com/YOUR_USERNAME/YOUR_REPO/releases](https://github.com/YOUR_USERNAME/YOUR_REPO/releases)
+Download link: [https://github.com/Hrishikesh1211/GAME-Final/releases](https://github.com/Hrishikesh1211/GAME-Final/releases)
 
 ## Summary
 Good luck escaping the mansion. Stay sane. Find the truth. And avoid the curse.
