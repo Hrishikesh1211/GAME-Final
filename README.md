@@ -1,199 +1,116 @@
-Project Report – The Mansion
-Student Name: Hrishikesh Rajaputra
- Course: Game 441
- Date: 5/6/2025
+# The Mansion – Final Project Report
 
-1. Base System Functionality (30 pts)
-Overview:
- The Mansion is a single-player, AI-driven text-based horror game set in a haunted house. The player navigates through eerie rooms, manages their sanity, avoids possession, and collects clues to solve the mystery and escape.
-Handled Scenarios:
-Room exploration and descriptions
+**Student:** [Your Name]  
+**Course:** Game AI  
+**Date:** [Submission Date]
 
+---
 
-Dice-based action resolution
+## 1. Base System Functionality (30 pts)
 
+**Overview:**  
+_The Mansion_ is a text-based, AI-inspired horror game where the player explores 10 haunted rooms, manages their sanity, avoids a cursed item, collects clues, and attempts to escape. The system tracks progress and decisions dynamically to support multiple endings.
 
-Sanity management system
+### Scenarios Handled:
+- Dynamic room generation and environmental descriptions
+- Dice-based skill resolution (e.g., open door, regain sanity, escape danger)
+- Sanity tracking and depletion with consequences
+- Clue collection and cursed item logic
+- Conditional branching for various endings
+- Replay loop with full game summary
+- Visual progress and sanity/clue bars in the terminal
+- Optional immersive audio system
 
+---
 
-Random events and environmental reactions
+## 2. Prompt Engineering & Model Parameter Choice (10 pts)
 
+While no real-time language model is used during gameplay, prompt engineering principles were applied in designing narrative templates and response logic.
 
-Locked door progression with roll-based access
+### Design Considerations:
+- Room descriptions were structured using reusable horror-themed templates
+- Prompts modeled to keep tone consistent and concise
+- Inspired by LLM temperature control principles to ensure variety while avoiding incoherence
+- Player instructions and help prompts were carefully worded to guide user actions and improve immersion
 
+---
 
-Clue discovery
+## 3. Tools Usage (15 pts)
 
+The game integrates multiple tools and Python libraries:
 
-Encountering cursed items
+- `pygame` – audio playback for ambient sounds and effects
+- `colorama` – dynamic terminal color coding (e.g., sanity bar)
+- `random` – handles all game chance logic (dice, events, clue discovery)
+- `os` – for environmental control and suppressing sound module prompts
 
+The `sounds/` folder is excluded from GitHub via `.gitignore` and made available separately via GitHub Releases for clean distribution.
 
-Audio-driven immersion
+---
 
+## 4. Planning & Reasoning (15 pts)
 
-Replay option with summary
+Multi-step reasoning is at the core of this game's logic:
 
+- Exploration triggers a sequence of decisions: update state → check progress → check for clues → generate event
+- Endings are decided by multiple conditions: room count, sanity level, clues found, cursed item status
+- Sound effects are tied to event types and emotional thresholds (e.g., mind snap when sanity drops)
 
-Core Features Implemented:
-explore command to enter rooms
+Replay logic resets the game and encourages alternate paths and endings based on new decisions.
 
+---
 
-roll for actions (e.g., open door, escape, sanity)
+## 5. Retrieval-Augmented Generation (10 pts)
 
+Clue tracking, cursed item status, and danger states simulate memory and context-based behavior across rooms.
 
-Sanity loss and recovery mechanics
+### In-Game Retrieval System:
+- Clues are stored and not repeated
+- Sanity loss is cumulative and persistent
+- Room events are generated based on evolving game state
+- Endings reflect multiple past conditions, similar to RAG-based summarization
 
+---
 
-Inventory system with cursed items and clues
+## 6. Additional Tools / Innovation (10 pts)
 
+### Features Added:
+- **Audio System**: Configurable ambient loop and situational effects (heartbeat, door creak, thunder)
+- **Visual Meters**:
+  - Sanity bar with color-coded thresholds
+  - Room progress bar showing total rooms explored
+  - Clue bar with live tracking
+- **In-Game Help System**: Real-time toggling of sound settings
+- **Narrative-Driven Endings**: Each tied to cumulative gameplay variables
+- **Multiple replay paths** with randomly distributed clue locations and cursed item events
 
-Win and loss conditions with multiple endings
+---
 
+## 7. Code Quality & Modular Design (10 pts)
 
-Visual HUD (sanity bar, progress bar, clues bar)
+### Structure:
+- `main.py` – gameplay loop and I/O
+- `game_state.py` – tracks player state and handles updates
+- `scenes.py` – handles room description generation and clue distribution
+- `dice.py` – encapsulates all roll logic
+- `sounds/` – holds audio assets (external via release)
+- `.gitignore` – excludes audio from version control
 
+The system is cleanly modular, well-commented, and structured for maintainability. GitHub repo uses semantic commits and organized asset distribution.
 
+---
 
-2. Prompt Engineering & Model Parameter Choice (10 pts)
-While the system does not use a live LLM in real-time gameplay, prompts and structured narrative templates were used during development to generate:
-Dynamic room descriptions
+## Repository
 
+Code and game logic:  
+[https://github.com/Hrishikesh1211/GAME-Final](https://github.com/Hrishikesh1211/GAME-Final)
 
-In-game events
+Download full game with sound:  
+[https://github.com/Hrishikesh1211/GAME-Final/releases](https://github.com/Hrishikesh1211/GAME-Final/releases)
 
+---
 
-Clue hints and object details
+## Conclusion
 
-
-Model Design Influences:
-Controlled generation style to keep horror tone
-
-
-Balanced output length to avoid delays
-
-
-Prompts written with context awareness, e.g., "You enter a dim hallway. A mirror seems to breathe."
-
-
-Parameters like temperature (0.7–0.9) were used during design testing to ensure unpredictability while keeping coherence.
-
-3. Tools Usage (15 pts)
-Integrated Tools:
-pygame – for sound effect playback and ambient looping
-
-
-colorama – for dynamic terminal coloring (sanity warnings)
-
-
-random – for simulating dice rolls and room events
-
-
-os – to manage prompt suppression and directory settings
-
-
-All tools are part of the Python ecosystem and demonstrate AI-adjacent utilities, especially around player feedback and immersion.
-
-4. Planning & Reasoning (15 pts)
-Multi-Step Planning Examples:
-Room generation calls internally update game state
-
-
-Roll outcomes trigger conditional branches (e.g., roll result, cursed status, sanity threshold)
-
-
-Clues and cursed item logic affect endgame reasoning
-
-
-Chain-of-thought logic is embedded in:
-Endings, which evaluate multiple conditions
-
-
-Replay loop, allowing players to start over with a fresh state
-
-
-Sound triggers tied to specific emotional or gameplay thresholds (e.g., sanity loss)
-
-
-
-5. Retrieval-Augmented Generation (10 pts)
-While no database or external vector search was used, a lightweight form of in-memory context tracking functions as RAG:
-Clues are stored per room and never repeated
-
-
-Found clues affect final narrative and outcome
-
-
-Previously triggered states (e.g., danger, curse, door status) influence future decisions
-
-
-This simulates memory retrieval and response adaptation across playthroughs.
-
-6. Additional Tools / Innovation (10 pts)
-Innovations Added:
-Audio system (optional toggle):
-
-
-Thunder intro
-
-
-Door creaks
-
-
-Heartbeat when sanity is at risk
-
-
-Mind snap on sanity loss
-
-
-Ambient loop option
-
-
-Visual HUD:
-
-
-Sanity bar with color tiers
-
-
-Room progress tracker
-
-
-Clue tracker
-
-
-Game summary at the end with dynamic flavor text
-
-
-Multiple endings based on clue count, sanity level, and cursed item status
-
-
-Help menu to toggle audio in real-time
-
-
-
-7. Code Quality & Modular Design (10 pts)
-Structure:
-main.py handles gameplay loop and user interaction
-
-
-game_state.py manages the player's state (sanity, clues, progress)
-
-
-scenes.py generates new room descriptions
-
-
-dice.py encapsulates roll logic
-
-
-sounds/ is ignored in Git but included in release ZIP
-
-
-Modular imports, clean functions, and inline documentation included
-
-
-Version control was maintained through GitHub:
-Repository: https://github.com/Hrishikesh1211/GAME-Final 
-Sound files provided through GitHub Releases 
-
-Conclusion
-The Mansion demonstrates a robust use of fundamental AI principles in a game system. It blends modular logic, narrative-driven decision trees, and player state tracking to deliver a cohesive and immersive horror experience. With layered endings, user-configurable audio, and progressive mechanics.
+_The Mansion_ applies core AI game development techniques — procedural generation, player state management, conditional logic, and sound-driven immersion — in a coherent and replayable horror experience. It meets the rubric's goals across all learning outcomes while remaining user-friendly and fun to play.
 
