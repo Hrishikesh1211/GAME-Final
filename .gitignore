@@ -1,0 +1,6 @@
+*.exe
+*.wav
+*.mp3
+sounds/
+__pycache__/
+*.log
