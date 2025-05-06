@@ -1,8 +1,8 @@
 # The Mansion – Final Project Report
 
-**Student:** [Your Name]  
+**Student:** Hrishikesh Rajaputra  
 **Course:** Game AI  
-**Date:** [Submission Date]
+**Date:** 5/6/2025
 
 ---
 
