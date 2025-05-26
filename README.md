@@ -1,12 +1,7 @@
-# The Mansion – Final Project Report
+# The Mansion 
+## AI Text-Based interactive Game 
 
-**Student:** Hrishikesh Rajaputra  
-**Course:** Game AI  
-**Date:** 5/6/2025
-
----
-
-## 1. Base System Functionality (30 pts)
+## 1. Base System Functionality
 
 **Overview:**  
 _The Mansion_ is a text-based, AI-inspired horror game where the player explores 10 haunted rooms, manages their sanity, avoids a cursed item, collects clues, and attempts to escape. The system tracks progress and decisions dynamically to support multiple endings.
@@ -23,7 +18,7 @@ _The Mansion_ is a text-based, AI-inspired horror game where the player explores
 
 ---
 
-## 2. Prompt Engineering & Model Parameter Choice (10 pts)
+## 2. Prompt Engineering & Model Parameter Choice 
 
 While no real-time language model is used during gameplay, prompt engineering principles were applied in designing narrative templates and response logic.
 
@@ -35,7 +30,7 @@ While no real-time language model is used during gameplay, prompt engineering pr
 
 ---
 
-## 3. Tools Usage (15 pts)
+## 3. Tools Usage
 
 The game integrates multiple tools and Python libraries:
 
@@ -48,7 +43,7 @@ The `sounds/` folder is excluded from GitHub via `.gitignore` and made available
 
 ---
 
-## 4. Planning & Reasoning (15 pts)
+## 4. Planning & Reasoning
 
 Multi-step reasoning is at the core of this game's logic:
 
@@ -60,7 +55,7 @@ Replay logic resets the game and encourages alternate paths and endings based on
 
 ---
 
-## 5. Retrieval-Augmented Generation (10 pts)
+## 5. Retrieval-Augmented Generation 
 
 Clue tracking, cursed item status, and danger states simulate memory and context-based behavior across rooms.
 
@@ -72,7 +67,7 @@ Clue tracking, cursed item status, and danger states simulate memory and context
 
 ---
 
-## 6. Additional Tools / Innovation (10 pts)
+## 6. Additional Tools / Innovation 
 
 ### Features Added:
 - **Audio System**: Configurable ambient loop and situational effects (heartbeat, door creak, thunder)
@@ -86,7 +81,7 @@ Clue tracking, cursed item status, and danger states simulate memory and context
 
 ---
 
-## 7. Code Quality & Modular Design (10 pts)
+## 7. Code Quality & Modular Design 
 
 ### Structure:
 - `main.py` – gameplay loop and I/O
